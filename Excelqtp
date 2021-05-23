@@ -1,0 +1,157 @@
+Set x1=createobject("excel.application")
+msgbox typename(x1)
+Set wb=x1.Workbooks.open("C:\Users\ksundaram\Desktop\QTP\test2.xlsx")
+msgbox typename(wb)
+Set sh=wb.worksheets(1)
+msgbox typename(sh)
+x1.visible=true
+sh.cells(1,1).value="Annai"
+var=sh.cells(1,1).value
+msgbox var
+wb.Save
+wb.close
+x1.Quit
+##############################################################################
+Dim objWordDoc
+' Initaiate the Word Document object
+Set objWordDoc = CreateObject("Word.Application")
+
+' New word document
+objWordDoc.Documents.Add
+
+' Type some charecters in the newly created document
+objWordDoc.Selection.TypeText "My first Line" & vbnewline & "My Second Line"
+
+' Save the document
+objWordDoc.ActiveDocument.SaveAs "C:\Users\ksundaram\Desktop\VB\MyWordDoc.doc"
+
+' Close word
+objWordDoc.Quit
+
+'Release the object
+Set objWordDoc=Nothing
+#####################################################################################
+Set x1=createobject("excel.application")
+msgbox typename(x1)                                    'Application
+Set wb=x1.Workbooks.Open("C:\Users\ksundaram\Desktop\VB\test1.xlsx")
+msgbox typename(wb)                                    'Workbook
+Set sh=wb.Worksheets(1)
+msgbox typename(sh)                                    'worksheet
+x1.visible=true
+sh.cells(1,1).value="Karnataka"
+var=sh.cells(1,1).value
+msgbox var                                            'Karnataka
+wb.Close
+x1.Quit
+msgbox typename(x1)                                    'Application
+msgbox typename(wb)                                    'Object
+Set x1=nothing
+msgbox typename(x1)                                    'Nothing
+Set wb=nothing
+msgbox typename(wb)                                    'Nothing
+Set rh=nothing
+#####################################################################################
+Set x1=createobject("excel.application")
+Set wb=x1.Workbooks.Open("C:\Users\ksundaram\Desktop\VB\test1.xlsx")
+Set sh=wb.Worksheets(1)
+x1.visible=true
+sh.cells(1,1).value="Karnataka"
+sh.cells(1,2).value="Bangalore"
+sh.cells(2,1).value="Tamilnadu"
+sh.cells(2,2).value="Coimbatore"    
+wb.Save
+wb.Close
+x1.Quit
+Set x1=nothing
+Set wb=nothing
+Set rh=nothing
+
+#####################################################################################
+
+Set x1=createobject("excel.application")
+Set wb=x1.Workbooks.Open("C:\Users\ksundaram\Desktop\VB\test1.xlsx")
+Set sh1=wb.Worksheets(1)
+x1.visible=true
+sh1.cells(1,1).value="Karnataka"
+sh1.cells(1,2).value="Bangalore"
+sh1.cells(2,1).value="Tamilnadu"
+sh1.cells(2,2).value="Coimbatore"    
+Set sh2=wb.Worksheets(2)
+x1.visible=true
+sh2.cells(1,1).value="Madurai"
+sh2.cells(1,2).value="chennai"
+sh2.cells(2,1).value="coimbatore"
+sh2.cells(2,2).value="Tirunelveli"
+wb.Save
+wb.Close
+x1.Quit
+Set x1=nothing
+Set wb=nothing
+Set rh=nothing
+
+
+
+#####################################################################################
+Set x1=createobject("excel.application")
+Set wb=x1.Workbooks.Open("C:\Users\ksundaram\Desktop\VB\test1.xlsx")
+Set sh1=wb.Worksheets(1)
+Set sh2=wb.Worksheets(2)
+x1.visible=true
+rc=sh1.usedrange.rows.count
+cc=sh1.usedrange.rows.count
+msgbox rc
+msgbox cc
+For i=1 to rc 
+    For j=1 to cc 
+    sh1.cells(i,j)="Annai"
+    sh2.cells(i,j).value="Aurobindo"
+    If sh2.cells(i,j)="Annai" Then
+        sh2.cells(i,j).font.color=vbred
+        sh2.cells(i,j).font.size=40
+        sh2.cells(i,j).font.name="calibri"
+        sh2.cells(i,j).interior.color=vbgreen
+        else
+        sh2.cells(i,j).font.color=vbblue
+        sh2.cells(i,j).font.size=36
+        sh2.cells(i,j).font.name="Arial"
+        sh2.cells(i,j).interior.color=vbyellow
+    End If
+        
+    Next
+Next
+
+
+
+Set x1=createobject("excel.application")
+Set wb=x1.Workbooks.Open("C:\Users\ksundaram\Desktop\VB\test1.xlsx")
+Set sh1=wb.Worksheets(1)
+Set sh2=wb.Worksheets(2)
+x1.visible=true
+rc=sh1.usedrange.rows.count
+cc=sh1.usedrange.rows.count
+msgbox rc
+msgbox cc
+For i=1 to rc 
+    For j=1 to cc 
+    sh1.cells(i,j).value="Annai"
+    var=sh1.cells(i,j).value
+    sh2.cells(i,j).value=var
+        If sh2.cells(i,j)="Annai" Then
+        sh2.cells(i,j).font.color=vbred
+        sh2.cells(i,j).font.size=40
+        sh2.cells(i,j).font.name="calibri"
+        sh2.cells(i,j).interior.color=vbgreen
+        else
+        sh2.cells(i,j).font.color=vbblue
+        sh2.cells(i,j).font.size=36
+        sh2.cells(i,j).font.name="Arial"
+        sh2.cells(i,j).interior.color=vbyellow
+    End If
+        
+    Next
+Next
+
+
+
+
+
